@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URBAN X | Premium Fashion</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:#070707;
+  color:white;
+  overflow-x:hidden;
+}
+
+/* =========================
+   ANIMATED BACKGROUND
+========================= */
+
+body:before{
+  content:"";
+  position:fixed;
+  width:500px;
+  height:500px;
+  border-radius:50%;
+  background:radial-gradient(circle,#ffffff18,transparent 70%);
+  top:-180px;
+  left:-150px;
+  animation:moveGlow 8s infinite alternate;
+  pointer-events:none;
+}
+
+body:after{
+  content:"";
+  position:fixed;
+  width:450px;
+  height:450px;
+  border-radius:50%;
+  background:radial-gradient(circle,#7772,transparent 70%);
+  right:-180px;
+  bottom:-150px;
+  animation:moveGlow2 10s infinite alternate;
+  pointer-events:none;
+}
+
+@keyframes moveGlow{
+  from{transform:translate(0,0)}
+  to{transform:translate(220px,180px)}
+}
+
+@keyframes moveGlow2{
+  from{transform:translate(0,0)}
+  to{transform:translate(-180px,-150px)}
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:1000;
+  padding:16px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  background:#080808b8;
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid #ffffff12;
+}
+
+.logo{
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+
+.navlinks{
+  display:flex;
+  gap:22px;
+}
+
+.navlinks a{
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+}
+
+.navlinks a:hover{
+  opacity:.6;
+}
+
+.cart{
+  background:white;
+  color:black;
+  padding:9px 15px;
+  border-radius:25px;
+  cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  min-height:100vh;
+  padding:120px 7% 60px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+  position:relative;
+  overflow:hidden;
+}
+
+.heroText{
+  max-width:600px;
+  z-index:2;
+}
+
+.heroText small{
+  letter-spacing:5px;
+  color:#aaa;
+}
+
+.heroText h1{
+  font-size:clamp(48px,8vw,95px);
+  line-height:.9;
+  margin:22px 0;
+  letter-spacing:-5px;
+}
+
+.heroText h1 span{
+  color:#aaa;
+}
+
+.heroText p{
+  color:#aaa;
+  font-size:18px;
+  line-height:1.6;
+}
+
+.heroBtn{
+  display:inline-block;
+  margin-top:28px;
+  padding:15px 25px;
+  background:white;
+  color:black;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* =========================
+   3D CLOTHING
+========================= */
+
+.scene{
+  width:380px;
+  height:450px;
+  perspective:900px;
+  position:relative;
+}
+
+.clothing{
+  width:240px;
+  height:300px;
+  position:absolute;
+  left:70px;
+  top:60px;
+  transform-style:preserve-3d;
+  animation:rotate3d 7s infinite ease-in-out;
+}
+
+.shirt3d{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(145deg,#eee,#555,#111);
+  clip-path:polygon(
+    30% 0,
+    43% 12%,
+    57% 12%,
+    70% 0,
+    100% 20%,
+    86% 48%,
+    73% 39%,
+    73% 100%,
+    27% 100%,
+    27% 39%,
+    14% 48%,
+    0 20%
+  );
+  box-shadow:0 30px 70px #000;
+}
+
+.shirt3d:after{
+  content:"URBAN X";
+  position:absolute;
+  left:50%;
+  top:48%;
+  transform:translate(-50%,-50%);
+  font-size:22px;
+  font-weight:bold;
+  letter-spacing:3px;
+}
+
+@keyframes rotate3d{
+  0%,100%{
+    transform:rotateY(-18deg) rotateX(5deg) translateY(0);
+  }
+  50%{
+    transform:rotateY(18deg) rotateX(-5deg) translateY(-25px);
+  }
+}
+
+/* floating rings */
+
+.ring{
+  position:absolute;
+  width:330px;
+  height:330px;
+  border:1px solid #ffffff25;
+  border-radius:50%;
+  top:40px;
+  left:25px;
+  animation:spin 10s linear infinite;
+}
+
+.ring2{
+  width:390px;
+  height:390px;
+  top:10px;
+  left:-5px;
+  animation:spin2 13s linear infinite;
+}
+
+@keyframes spin{
+  to{transform:rotate(360deg)}
+}
+
+@keyframes spin2{
+  to{transform:rotate(-360deg)}
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+section{
+  padding:90px 6%;
+  position:relative;
+}
+
+.sectionTitle{
+  font-size:38px;
+  margin-bottom:35px;
+}
+
+.sectionTitle span{
+  color:#777;
+}
+
+/* =========================
+   PRODUCTS
+========================= */
+
+.filters{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:30px;
+}
+
+.filters button{
+  padding:10px 18px;
+  border:1px solid #ffffff20;
+  border-radius:25px;
+  background:#111;
+  color:white;
+  cursor:pointer;
+}
+
+.filters button.active{
+  background:white;
+  color:black;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
+  gap:22px;
+}
+
+.product{
+  background:#111;
+  border:1px solid #ffffff12;
+  border-radius:20px;
+  overflow:hidden;
+  transition:.4s;
+}
+
+.product:hover{
+  transform:translateY(-10px) rotateX(2deg);
+  box-shadow:0 25px 50px #000;
+}
+
+.productImage{
+  height:270px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:100px;
+  background:
+    radial-gradient(circle at center,#333,#111 65%);
+}
+
+.productInfo{
+  padding:18px;
+}
+
+.badge{
+  display:inline-block;
+  padding:5px 10px;
+  border-radius:15px;
+  background:white;
+  color:black;
+  font-size:10px;
+  font-weight:bold;
+}
+
+.productInfo h3{
+  margin:12px 0 8px;
+}
+
+.productInfo p{
+  color:#888;
+  font-size:13px;
+  margin-bottom:12px;
+}
+
+.price{
+  font-size:21px;
+  font-weight:bold;
+}
+
+.old{
+  color:#666;
+  text-decoration:line-through;
+  font-size:13px;
+  margin-left:6px;
+}
+
+.buy{
+  margin-top:14px;
+  width:100%;
+  padding:11px;
+  border:0;
+  border-radius:25px;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* =========================
+   DELIVERY
+========================= */
+
+.delivery{
+  background:
+    linear-gradient(135deg,#171717,#080808);
+  border:1px solid #ffffff15;
+  border-radius:30px;
+  padding:45px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:25px;
+}
+
+.delivery h2{
+  font-size:35px;
+}
+
+.delivery p{
+  color:#999;
+  margin-top:10px;
+}
+
+.deliveryIcon{
+  font-size:80px;
+  animation:truck 2s infinite ease-in-out;
+}
+
+@keyframes truck{
+  50%{transform:translateX(15px)}
+}
+
+/* =========================
+   SOCIAL
+========================= */
+
+.social{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.socialCard{
+  padding:30px;
+  border-radius:22px;
+  background:#111;
+  border:1px solid #ffffff12;
+  text-align:center;
+  transition:.3s;
+}
+
+.socialCard:hover{
+  transform:translateY(-8px);
+}
+
+.socialCard a{
+  display:block;
+  margin-top:15px;
+  color:white;
+  text-decoration:none;
+}
+
+/* =========================
+   CART
+========================= */
+
+.cartPanel{
+  position:fixed;
+  right:-400px;
+  top:0;
+  width:350px;
+  height:100vh;
+  background:#111;
+  z-index:2000;
+  padding:25px;
+  transition:.4s;
+  box-shadow:-20px 0 50px #000;
+}
+
+.cartPanel.open{
+  right:0;
+}
+
+.cartPanel button{
+  margin-top:20px;
+}
+
+.close{
+  float:right;
+  background:none;
+  color:white;
+  border:0;
+  font-size:25px;
+  cursor:pointer;
+}
+
+.orderBtn{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:25px;
+  background:white;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  padding:45px 6%;
+  background:#030303;
+  border-top:1px solid #ffffff10;
+}
+
+.footerGrid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:30px;
+}
+
+footer p{
+  color:#777;
+  margin-top:10px;
+}
+
+footer a{
+  display:block;
+  color:#aaa;
+  text-decoration:none;
+  margin-top:8px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:800px){
+
+  .navlinks{
+    display:none;
+  }
+
+  .hero{
+    flex-direction:column;
+    padding-top:130px;
+    text-align:center;
+  }
+
+  .heroText h1{
+    letter-spacing:-3px;
+  }
+
+  .scene{
+    transform:scale(.8);
+    margin-top:-20px;
+  }
+
+  .delivery{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .social{
+    grid-template-columns:1fr;
+  }
+
+  .footerGrid{
+    grid-template-columns:1fr;
+  }
+
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav>
+
+  <div class="logo">URBAN X</div>
+
+  <div class="navlinks">
+    <a href="#home">Home</a>
+    <a href="#collection">Collection</a>
+    <a href="#delivery">Delivery</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <div class="cart" onclick="openCart()">
+    🛒 <span id="cartCount">0</span>
+  </div>
+
+</nav>
+
+
+<!-- HERO -->
+
+<div class="hero" id="home">
+
+  <div class="heroText">
+
+    <small>PREMIUM FASHION STORE</small>
+
+    <h1>
+      WEAR<br>
+      <span>YOUR</span><br>
+      STYLE.
+    </h1>
+
+    <p>
+      Discover trending shirts and pants
+      designed for your everyday style.
+    </p>
+
+    <a class="heroBtn" href="#collection">
+      Explore Collection →
+    </a>
+
+  </div>
+
+
+  <div class="scene">
+
+    <div class="ring"></div>
+    <div class="ring ring2"></div>
+
+    <div class="clothing">
+      <div class="shirt3d"></div>
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- COLLECTION -->
+
+<section id="collection">
+
+  <h2 class="sectionTitle">
+    Trending <span>Collection</span>
+  </h2>
+
+  <div class="filters">
+
+    <button class="active"
+      onclick="filterProducts('all',this)">
+      All
+    </button>
+
+    <button onclick="filterProducts('shirt',this)">
+      👕 Shirts
+    </button>
+
+    <button onclick="filterProducts('pant',this)">
+      👖 Pants
+    </button>
+
+    <button onclick="filterProducts('new',this)">
+      ✨ New
+    </button>
+
+  </div>
+
+
+  <div class="products" id="products"></div>
+
+</section>
+
+
+<!-- DELIVERY -->
+
+<section id="delivery">
+
+  <div class="delivery">
+
+    <div>
+
+      <h2>🚚 Online Delivery Available</h2>
+
+      <p>
+        Order your favourite fashion from home.
+        Fast local delivery available.
+      </p>
+
+    </div>
+
+    <div class="deliveryIcon">
+      🚚
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- SOCIAL -->
+
+<section id="contact">
+
+  <h2 class="sectionTitle">
+    Connect <span>With Us</span>
+  </h2>
+
+  <div class="social">
+
+    <div class="socialCard">
+      <div style="font-size:45px">💬</div>
+      <h3>WhatsApp</h3>
+      <a href="https://wa.me/91XXXXXXXXXX">
+        Chat / Order →
+      </a>
+    </div>
+
+    <div class="socialCard">
+      <div style="font-size:45px">📸</div>
+      <h3>Instagram</h3>
+      <a href="https://instagram.com/YOUR_INSTAGRAM"
+         target="_blank">
+        Follow Us →
+      </a>
+    </div>
+
+    <div class="socialCard">
+      <div style="font-size:45px">👍</div>
+      <h3>Facebook</h3>
+      <a href="https://facebook.com/YOUR_FACEBOOK"
+         target="_blank">
+        Visit Page →
+      </a>
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <div class="social">
+
+    <div class="socialCard">
+
+      <div style="font-size:45px">📞</div>
+
+      <h3>Call Us</h3>
+
+      <a href="tel:+91XXXXXXXXXX">
+        Call Now →
+      </a>
+
+    </div>
+
+    <div class="socialCard">
+
+      <div style="font-size:45px">📍</div>
+
+      <h3>Shop Location</h3>
+
+      <a href="https://maps.google.com"
+         target="_blank">
+        Open Maps →
+      </a>
+
+    </div>
+
+    <div class="socialCard">
+
+      <div style="font-size:45px">⭐</div>
+
+      <h3>Customer Reviews</h3>
+
+      <a href="#reviews">
+        See Reviews →
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- REVIEWS -->
+
+<section id="reviews">
+
+  <h2 class="sectionTitle">
+    What Customers <span>Say</span>
+  </h2>
+
+  <div class="products">
+
+    <div class="socialCard">
+      ⭐⭐⭐⭐⭐
+      <p>
+        "Amazing collection and good quality."
+      </p>
+      <br>
+      <b>Rahul</b>
+    </div>
+
+    <div class="socialCard">
+      ⭐⭐⭐⭐⭐
+      <p>
+        "Trendy designs at a great price."
+      </p>
+      <br>
+      <b>Arjun</b>
+    </div>
+
+    <div class="socialCard">
+      ⭐⭐⭐⭐⭐
+      <p>
+        "Fast delivery and excellent service."
+      </p>
+      <br>
+      <b>Rohit</b>
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- CART -->
+
+<div class="cartPanel" id="cartPanel">
+
+  <button class="close" onclick="closeCart()">×</button>
+
+  <h2>🛒 Your Cart</h2>
+
+  <br>
+
+  <div id="cartItems">
+    Cart is empty.
+  </div>
+
+  <button class="orderBtn"
+    onclick="whatsappOrder()">
+    💬 Order on WhatsApp
+  </button>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+  <div class="footerGrid">
+
+    <div>
+      <h2>URBAN X</h2>
+      <p>
+        Premium trending fashion for
+        your everyday style.
+      </p>
+    </div>
+
+    <div>
+      <h3>Quick Links</h3>
+      <a href="#home">Home</a>
+      <a href="#collection">Collection</a>
+      <a href="#delivery">Delivery</a>
+    </div>
+
+    <div>
+      <h3>Contact</h3>
+      <p>📞 +91 XXXXX XXXXX</p>
+      <p>📍 Your City, Odisha</p>
+    </div>
+
+  </div>
+
+  <br><br>
+
+  <center>
+    © 2026 URBAN X — All Rights Reserved
+  </center>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   PRODUCTS
+========================= */
+
+const products = [
+
+  {
+    name:"Oversized Black Shirt",
+    type:"shirt",
+    price:899,
+    old:1299,
+    tag:"TRENDING",
+    icon:"👕"
+  },
+
+  {
+    name:"Premium White Shirt",
+    type:"shirt",
+    price:999,
+    old:1499,
+    tag:"NEW",
+    icon:"👕"
+  },
+
+  {
+    name:"Classic Blue Denim",
+    type:"pant",
+    price:1199,
+    old:1699,
+    tag:"TRENDING",
+    icon:"👖"
+  },
+
+  {
+    name:"Baggy Black Pant",
+    type:"pant",
+    price:1299,
+    old:1799,
+    tag:"NEW",
+    icon:"👖"
+  },
+
+  {
+    name:"Street Style Shirt",
+    type:"shirt",
+    price:799,
+    old:1199,
+    tag:"SALE",
+    icon:"👕"
+  },
+
+  {
+    name:"Cargo Style Pant",
+    type:"pant",
+    price:1399,
+    old:1899,
+    tag:"TRENDING",
+    icon:"👖"
+  }
+
+];
+
+
+let cart = [];
+
+let currentFilter = "all";
+
+
+/* =========================
+   DISPLAY
+========================= */
+
+function displayProducts(){
+
+  const box =
+  document.getElementById("products");
+
+  box.innerHTML="";
+
+
+  products
+  .filter(p => {
+
+    if(currentFilter==="all")
+      return true;
+
+    if(currentFilter==="new")
+      return p.tag==="NEW";
+
+    return p.type===currentFilter;
+
+  })
+  .forEach((p,index)=>{
+
+    box.innerHTML += `
+
+      <div class="product">
+
+        <div class="productImage">
+          ${p.icon}
+        </div>
+
+        <div class="productInfo">
+
+          <span class="badge">
+            ${p.tag}
+          </span>
+
+          <h3>${p.name}</h3>
+
+          <p>
+            Premium quality •
+            Multiple sizes available
+          </p>
+
+          <div class="price">
+            ₹${p.price}
+            <span class="old">
+              ₹${p.old}
+            </span>
+          </div>
+
+          <button class="buy"
+            onclick="addCart(${index})">
+            🛒 Add to Cart
+          </button>
+
+        </div>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+/* =========================
+   FILTER
+========================= */
+
+function filterProducts(type,button){
+
+  currentFilter=type;
+
+  document
+  .querySelectorAll(".filters button")
+  .forEach(b =>
+    b.classList.remove("active")
+  );
+
+  button.classList.add("active");
+
+  displayProducts();
+
+}
+
+
+/* =========================
+   CART
+========================= */
+
+function addCart(index){
+
+  cart.push(products[index]);
+
+  document.getElementById("cartCount")
+    .innerText=cart.length;
+
+  updateCart();
+
+  openCart();
+
+}
+
+
+function updateCart(){
+
+  const box =
+  document.getElementById("cartItems");
+
+  if(cart.length===0){
+
+    box.innerHTML="Cart is empty.";
+
+    return;
+
+  }
+
+  box.innerHTML="";
+
+  cart.forEach((p,i)=>{
+
+    box.innerHTML += `
+
+      <div style="
+        padding:15px 0;
+        border-bottom:1px solid #ffffff15;
+      ">
+
+        <b>${p.name}</b>
+
+        <br>
+
+        ₹${p.price}
+
+        <button
+          onclick="removeCart(${i})"
+          style="
+            float:right;
+            background:#333;
+            color:white;
+            border:0;
+            padding:5px 10px;
+            border-radius:10px;
+          ">
+          Remove
+        </button>
+
+      </div>
+
+    `;
+
+  });
+
+}
+
+
+function removeCart(index){
+
+  cart.splice(index,1);
+
+  document.getElementById("cartCount")
+    .innerText=cart.length;
+
+  updateCart();
+
+}
+
+
+function openCart(){
+
+  document
+  .getElementById("cartPanel")
+  .classList.add("open");
+
+}
+
+
+function closeCart(){
+
+  document
+  .getElementById("cartPanel")
+  .classList.remove("open");
+
+}
+
+
+/* =========================
+   WHATSAPP ORDER
+========================= */
+
+function whatsappOrder(){
+
+  if(cart.length===0){
+
+    alert("Cart empty hai.");
+
+    return;
+
+  }
+
+  let message =
+  "Hello URBAN X 👋%0A%0A";
+
+  message +=
+  "I want to order:%0A";
+
+  cart.forEach(p=>{
+
+    message +=
+    "• "+p.name+
+    " - ₹"+p.price+
+    "%0A";
+
+  });
+
+  message +=
+  "%0APlease share delivery details.";
+
+  window.open(
+    "https://wa.me/91XXXXXXXXXX?text="+
+    message,
+    "_blank"
+  );
+
+}
+
+
+/* START */
+
+displayProducts();
+
+</script>
+
+</body>
+  </html>
